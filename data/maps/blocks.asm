@@ -1920,4 +1920,12 @@ SECTION "BattleFactoryBattleRoom_BlockData", ROMX
 BattleFactoryBattleRoom_BlockData:
 	INCBIN "maps/BattleFactoryBattleRoom.ablk.lz"
 
+SECTION "Baadon_BlockData", ROMX
+Baadon_BlockData:
+	INCBIN "maps/Baadon.ablk.lz"
+
+SECTION "Office_BlockData", ROMX
+Office_BlockData:
+	INCBIN "maps/Office.ablk.lz"
+
 ENDSECTION

@@ -704,4 +704,10 @@ ENDM
 	map_const ECRUTEAK_SHRINE_OUTSIDE,                     8, 11 ;  1
 	map_const ECRUTEAK_SHRINE_INSIDE,                      6,  6 ;  2
 
-DEF NUM_MAP_GROUPS EQU const_value ; 37
+	newgroup													 ; 38
+	map_const BAADON,									  10,  9 ;  1
+
+    newgroup                                                     ; 39
+    map_const OFFICE,                                     10,  9 ;  1
+
+DEF NUM_MAP_GROUPS EQU const_value ; 39

@@ -10,6 +10,9 @@ SpawnPoints:
 
 	spawn PLAYERS_HOUSE_2F,            3,  3
 
+	spawn BAADON,     				   8,  7
+	spawn OFFICE,     				   3, 14
+
 	spawn PALLET_TOWN,                 5,  6
 	spawn VIRIDIAN_CITY,              23, 26
 	spawn PEWTER_CITY,                13, 26

@@ -54,6 +54,8 @@ Tilesets::
 	tileset TilesetPokemonMansion
 	tileset TilesetBattleFactory
 	tileset TilesetSnowtopMountain
+	tileset TilesetBaadon
+	tileset TilesetOffice
 	assert_table_length NUM_TILESETS
 
 
@@ -484,6 +486,26 @@ TilesetSnowtopMountainAttr:: INCBIN "data/tilesets/snowtop_mountain_attributes.b
 TilesetSnowtopMountainColl:: INCBIN "data/tilesets/snowtop_mountain_collision.bin.lz"
 
 
+SECTION "Tileset Data - baadon", ROMX
+
+TilesetBaadonGFX0:: INCBIN "gfx/tilesets/baadon.2bpp.vram0.lz"
+TilesetBaadonGFX1:: INCBIN "gfx/tilesets/baadon.2bpp.vram1.lz"
+
+TilesetBaadonMeta:: INCBIN "data/tilesets/baadon_metatiles.bin.lz"
+TilesetBaadonAttr:: INCBIN "data/tilesets/baadon_attributes.bin.lz"
+TilesetBaadonColl:: INCBIN "data/tilesets/baadon_collision.bin.lz"
+
+
+SECTION "Tileset Data - office", ROMX
+
+TilesetOfficeGFX0:: INCBIN "gfx/tilesets/office.2bpp.vram0.lz"
+TilesetOfficeGFX1:: INCBIN "gfx/tilesets/office.2bpp.vram1.lz"
+
+TilesetOfficeMeta:: INCBIN "data/tilesets/office_metatiles.bin.lz"
+TilesetOfficeAttr:: INCBIN "data/tilesets/office_attributes.bin.lz"
+TilesetOfficeColl:: INCBIN "data/tilesets/office_collision.bin.lz"
+
+
 SECTION "Tileset GFX2 Data", ROMX
 
 TilesetJohto1GFX2::
@@ -534,4 +556,6 @@ TilesetAlphGFX2::
 TilesetPokemonMansionGFX2::
 TilesetBattleFactoryGFX2::
 TilesetSnowtopMountainGFX2::
+TilesetBaadonGFX2::
+TilesetOfficeGFX2::
 	db $ff ; Compressed data is terminated with $ff.

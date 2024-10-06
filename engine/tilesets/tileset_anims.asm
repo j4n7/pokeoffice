@@ -312,6 +312,8 @@ TilesetWarehouseAnim::
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
+TilesetBaadonAnim::
+TilesetOfficeAnim::
 TilesetHouse1Anim::
 TilesetHouse2Anim::
 TilesetPokeCenterAnim::

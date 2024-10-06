@@ -65,7 +65,7 @@ _NewGame_FinishSetup:
 	ld a, 1
 	ld [wPrevLandmark], a
 
-	ld a, SPAWN_HOME
+	ld a, SPAWN_OFFICE
 	ld [wDefaultSpawnpoint], a
 
 	ld a, MAPSETUP_WARP
