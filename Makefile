@@ -1,6 +1,6 @@
-NAME := polishedcrystal
+NAME := pokeoffice
 MODIFIERS :=
-VERSION := 3.0.0-beta
+VERSION := 0.0.1-alpha
 
 ROM_NAME = $(NAME)$(MODIFIERS)-$(VERSION)
 EXTENSION := gbc

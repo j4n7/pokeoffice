@@ -575,84 +575,19 @@ Continue_DisplayGameTime:
 ProfElmSpeech:
 	farcall InitClock
 	ld c, 31
-	call FadeToBlack
+	; call FadeToBlack
 	call ClearTileMap
 
-	ld e, MUSIC_ROUTE_30
-	call PlayMusic
+	; ld e, MUSIC_ROUTE_30
+	; call PlayMusic
 
-	ld c, 31
-	call FadeToWhite
+	; call InitGender
 
-	xor a
-	ld [wCurPartySpecies], a
-	ld a, PROF_ELM
-	ld [wTrainerClass], a
-	call Intro_PrepTrainerPic
+	; ld c, 10
+	; call DelayFrames
 
-	ld a, CGB_INTRO_PALS
-	call GetCGBLayout
-	call InitIntroGradient
-	call Intro_RotatePalettesLeftFrontpic
-
-	ld hl, ElmText1
-	call PrintText
-if !DEF(DEBUG)
-	ld c, 15
-	call FadeToWhite
-	call ClearTileMap
-
-	ld a, LOW(GLACEON)
-	ld [wCurSpecies], a
-	ld [wCurPartySpecies], a
-	ld a, HIGH(GLACEON) << MON_EXTSPECIES_F
-	ld [wCurForm], a
-	ld [wTempMonForm], a
-	call GetBaseData
-
-	hlcoord 6, 4
-	call PrepMonFrontpic
-
-	xor a
-	ld [wTempMonDVs], a
-	ld [wTempMonDVs + 1], a
-	ld [wTempMonDVs + 2], a
-
-	ld a, CGB_INTRO_PALS
-	call GetCGBLayout
-	call InitIntroGradient
-	call Intro_RotatePalettesLeftFrontpic
-
-	ld hl, ElmText2
-	call PrintText
-	ld hl, ElmText4
-	call PrintText
-	ld c, 15
-	call FadeToWhite
-	call ClearTileMap
-
-	xor a
-	ld [wCurPartySpecies], a
-	ld a, PROF_ELM
-	ld [wTrainerClass], a
-	call Intro_PrepTrainerPic
-
-	ld a, CGB_INTRO_PALS
-	call GetCGBLayout
-	call InitIntroGradient
-	call Intro_RotatePalettesLeftFrontpic
-
-	ld hl, ElmText5
-	call PrintText
-endc
-
-	call InitGender
-
-	ld c, 10
-	call DelayFrames
-
-	ld hl, ElmText6
-	call PrintText
+	; ld hl, ElmText6
+	; call PrintText
 
 	call NamePlayer
 
@@ -666,8 +601,8 @@ endc
 	call InitIntroGradient
 	call Intro_RotatePalettesLeftFrontpic
 
-	ld hl, ElmText7
-	jmp PrintText
+	; ld hl, ElmText7
+	; jmp PrintText
 
 ElmText1:
 	text_far _ElmText1
