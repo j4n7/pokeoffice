@@ -14,7 +14,7 @@ Office_MapScriptHeader:
 	object_event  3,  9, SPRITE_SILPH_EMPLOYEE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OfficeEmployee2Script, -1
 	object_event 16, 14, SPRITE_SILPH_EMPLOYEE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OfficeEmployee3Script, -1
 	object_event 14, 15, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_GENERICTRAINER, 5, GenericTrainerScientistGepetto, -1
-	object_event  5, 15, SPRITE_BALL_CUT_FRUIT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_POKE_BALL, OBJECTTYPE_SCRIPT, 0, PorygonBallScript, EVENT_GOT_PORYGON_BALL
+	object_event  5, 15, SPRITE_PORYGON, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PorygonBallScript, EVENT_GOT_PORYGON_BALL
 
 
 	object_const_def
@@ -61,14 +61,16 @@ GenericTrainerScientistGepetto:
 
 PorygonBallScript:
 	faceplayer
+	showemote EMOTE_SHOCK, PORYGON_BALL, 15
+	pause 20
 	checkevent EVENT_GOT_PORYGON_BALL
 	iftrue .AlreadyGotGiftPoke
 	readvar VAR_PARTYCOUNT
 	ifequalfwd PARTY_LENGTH, .PartyFullGift
-	disappear PORYGON_BALL ; Since it dissapears, no need to check event
 	opentext
 	writetext PorygonBallText
 	promptbutton
+	disappear PORYGON_BALL ; Since it dissapears, no need to check event
 	givepoke PORYGON, PLAIN_FORM, 20, ORAN_BERRY
 	setevent EVENT_GOT_PORYGON_BALL
 	closetext

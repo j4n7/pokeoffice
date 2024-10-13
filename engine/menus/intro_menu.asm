@@ -59,7 +59,7 @@ _NewGame_FinishSetup:
 	farcall ClearSavedObjPals
 	call NewGame_ClearTileMapEtc
 	call WarnVBA
-	call SetInitialOptions
+	; call SetInitialOptions
 	call ProfElmSpeech
 	call InitializeWorld
 	ld a, 1
