@@ -7774,6 +7774,14 @@ ScientistGroup:
 	dbp 55, ALAKAZAM
 	db -1 ; end
 
+	; SCIENTIST
+	db "Gepetto@"
+	db TRAINERTYPE_NORMAL
+	; party
+	dbp 10, JOLTEON
+	dbp 10, PIKACHU
+	db -1 ; end
+
 
 SECTION "RocketScientistGroup", ROMX
 RocketScientistGroup:

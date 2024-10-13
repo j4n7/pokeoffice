@@ -793,6 +793,7 @@ DEF CRYS EQU __trainer_class__
 	const JOSEPH
 	const NIGEL
 	const PIOTR
+	const GEPETTO
 
 	trainerclass ROCKET_SCIENTIST ; 55
 	const ROSS
