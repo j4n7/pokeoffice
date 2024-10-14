@@ -1086,5 +1086,6 @@ INCLUDE "maps/Baadon.asm"
 SECTION "Office Scripts", ROMX
 
 INCLUDE "maps/Office.asm"
+INCLUDE "maps/OfficeElevator.asm"
 
 ENDSECTION
