@@ -4,6 +4,8 @@ Office_MapScriptHeader:
 	def_callbacks
 
 	def_warp_events
+	warp_event  9,  0, OFFICE_ELEVATOR, 1
+	warp_event 10,  0, OFFICE_ELEVATOR, 2
 
 	def_coord_events
 

@@ -1928,4 +1928,8 @@ SECTION "Office_BlockData", ROMX
 Office_BlockData:
 	INCBIN "maps/Office.ablk.lz"
 
+SECTION "OfficeElevator_BlockData", ROMX
+OfficeElevator_BlockData:
+	INCBIN "maps/OfficeElevator.ablk.lz"
+
 ENDSECTION

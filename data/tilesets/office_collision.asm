@@ -3,8 +3,8 @@
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 02
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 03
 	tilecoll WALL, WALL, FLOOR, WALL ; 04
-	tilecoll WALL, WALL, FLOOR, FLOOR ; 05
-	tilecoll WALL, WALL, FLOOR, FLOOR ; 06
+	tilecoll WALL, DOOR, FLOOR, FLOOR ; 05
+	tilecoll DOOR, WALL, FLOOR, FLOOR ; 06
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 07
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 08
 	tilecoll WALL, STAIRCASE, FLOOR, FLOOR ; 09
