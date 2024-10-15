@@ -56,6 +56,7 @@ Tilesets::
 	tileset TilesetSnowtopMountain
 	tileset TilesetBaadon
 	tileset TilesetOffice
+	tileset TilesetServerFloor
 	assert_table_length NUM_TILESETS
 
 
@@ -506,6 +507,16 @@ TilesetOfficeAttr:: INCBIN "data/tilesets/office_attributes.bin.lz"
 TilesetOfficeColl:: INCBIN "data/tilesets/office_collision.bin.lz"
 
 
+SECTION "Tileset Data - server_floor", ROMX
+
+TilesetServerFloorGFX0:: INCBIN "gfx/tilesets/server_floor.2bpp.vram0.lz"
+TilesetServerFloorGFX1:: INCBIN "gfx/tilesets/server_floor.2bpp.vram1.lz"
+
+TilesetServerFloorMeta:: INCBIN "data/tilesets/server_floor_metatiles.bin.lz"
+TilesetServerFloorAttr:: INCBIN "data/tilesets/server_floor_attributes.bin.lz"
+TilesetServerFloorColl:: INCBIN "data/tilesets/server_floor_collision.bin.lz"
+
+
 SECTION "Tileset GFX2 Data", ROMX
 
 TilesetJohto1GFX2::
@@ -558,4 +569,5 @@ TilesetBattleFactoryGFX2::
 TilesetSnowtopMountainGFX2::
 TilesetBaadonGFX2::
 TilesetOfficeGFX2::
+TilesetServerFloorGFX2::
 	db $ff ; Compressed data is terminated with $ff.

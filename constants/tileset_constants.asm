@@ -48,6 +48,7 @@ DEF NO_ROOF_TILESETS EQU const_value
 	const TILESET_SNOWTOP_MOUNTAIN     ; 2d
 	const TILESET_BAADON       		   ; 2e
 	const TILESET_OFFICE	   		   ; 2f
+	const TILESET_SERVER_FLOOR		   ; 30
 DEF NUM_TILESETS EQU const_value - 1
 
 ; wTileset struct size

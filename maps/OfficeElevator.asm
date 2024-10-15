@@ -28,5 +28,5 @@ OfficeElevatorButton:
 .Floors:
 	db 2 ; floors
 	elevfloor FLOOR_19F, 1, OFFICE
-	elevfloor FLOOR_B1F, 1, ROCKET_HIDEOUT_B1F
+	elevfloor FLOOR_B1F, 1, SERVER_FLOOR
 	db -1 ; end

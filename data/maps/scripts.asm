@@ -1087,5 +1087,6 @@ SECTION "Office Scripts", ROMX
 
 INCLUDE "maps/Office.asm"
 INCLUDE "maps/OfficeElevator.asm"
+INCLUDE "maps/ServerFloor.asm"
 
 ENDSECTION

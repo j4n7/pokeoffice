@@ -322,6 +322,7 @@ TilesetOfficeAnim::
 	dw NULL,  StandingTileFrame8 ; Needed for animations to work
 	dw NULL,  DoneTileAnimation
 
+TilesetServerFloorAnim::
 TilesetBaadonAnim::
 TilesetHouse1Anim::
 TilesetHouse2Anim::

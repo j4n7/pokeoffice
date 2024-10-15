@@ -427,6 +427,7 @@ ENDM
 	map_attributes Baadon, BAADON, $0, 0
 	map_attributes Office, OFFICE, $0, 0	
 	map_attributes OfficeElevator, OFFICE_ELEVATOR, $0, 0
+	map_attributes ServerFloor, SERVER_FLOOR, $0, 0
 	map_attributes SproutTower1F, SPROUT_TOWER_1F, $0, 0
 	map_attributes SproutTower2F, SPROUT_TOWER_2F, $0, 0
 	map_attributes SproutTower3F, SPROUT_TOWER_3F, $0, 0

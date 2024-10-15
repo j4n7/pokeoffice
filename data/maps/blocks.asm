@@ -1932,4 +1932,8 @@ SECTION "OfficeElevator_BlockData", ROMX
 OfficeElevator_BlockData:
 	INCBIN "maps/OfficeElevator.ablk.lz"
 
+SECTION "ServerFloor_BlockData", ROMX
+ServerFloor_BlockData:
+	INCBIN "maps/ServerFloor.ablk.lz"
+
 ENDSECTION

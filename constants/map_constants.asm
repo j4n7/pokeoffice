@@ -710,5 +710,6 @@ ENDM
     newgroup                                                     ; 39
     map_const OFFICE,                                     10,  9 ;  1
 	map_const OFFICE_ELEVATOR,                             2,  2 ;  2
+	map_const SERVER_FLOOR,                               10,  9 ;  3
 
 DEF NUM_MAP_GROUPS EQU const_value ; 39
