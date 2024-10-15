@@ -15,6 +15,7 @@ ElevatorFloorNames:
 	dr ._9F
 	dr ._10F
 	dr ._11F
+	dr ._19F
 	dr .Roof
 	assert_table_length NUM_FLOORS
 
@@ -33,4 +34,5 @@ ElevatorFloorNames:
 ._9F:  db "9F@"
 ._10F: db "10F@"
 ._11F: db "11F@"
+._19F: db "19F@"
 .Roof: db "Roof@"

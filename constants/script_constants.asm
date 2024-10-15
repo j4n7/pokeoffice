@@ -162,6 +162,7 @@ DEF NUM_OBJECT_TYPES EQU const_value
 	const FLOOR_9F
 	const FLOOR_10F
 	const FLOOR_11F
+	const FLOOR_19F
 	const FLOOR_ROOF
 DEF NUM_FLOORS EQU const_value
 

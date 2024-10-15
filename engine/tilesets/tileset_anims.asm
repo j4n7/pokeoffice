@@ -312,8 +312,14 @@ TilesetWarehouseAnim::
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
-TilesetBaadonAnim::
 TilesetOfficeAnim::
+	dw vTiles2 tile $0, AnimateRainPuddleTile
+	dw vTiles2 tile $31, AnimateTapeTile
+	dw vTiles2 tile $1, AnimateRainWaterTile
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
+
+TilesetBaadonAnim::
 TilesetHouse1Anim::
 TilesetHouse2Anim::
 TilesetPokeCenterAnim::
@@ -462,6 +468,32 @@ ScrollTileDown:
 	dec a
 	jr nz, .loop
 	ret
+
+AnimateTapeTile:
+	; Change to VRAM bank 1
+	ld a, 1
+	ld [rVBK], a
+
+	ld hl, sp + 0
+	ld b, h
+	ld c, l
+
+	; period 8, offset to 1 tile (16 bytes)
+	ld a, [wTileAnimationTimer]
+	maskbits 8
+	swap a
+
+	add LOW(.TapeTileFrames)
+	ld l, a
+	adc HIGH(.TapeTileFrames)
+	sub l
+	ld h, a
+
+	ld sp, hl
+	jmp WriteTileToDE
+
+.TapeTileFrames:
+INCBIN "gfx/tilesets/tape/tape.2bpp"
 
 AnimateFountain:
 	ld hl, sp + 0
@@ -1184,6 +1216,10 @@ endr
 	ld l, c
 	ld sp, hl
 	ret
+
+	; Change to VRAM bank 0
+	ld a, 0
+	ld [rVBK], a
 
 FlickeringCaveEntrancePalette:
 	ldh a, [rBGP]
