@@ -3,6 +3,19 @@ AnimateTapeTileL:
 	; ld a, 1
 	; ld [rVBK], a
 
+    push de
+
+    ld de, EVENT_ANIM_TAPE
+    ld b, CHECK_FLAG
+    call EventFlagAction
+
+    pop de
+
+    ld a, c
+    and a ; is it 0?
+    jp z, StopTapeL ; yes, then jump to something else
+    ; otherwise, run code for 1
+
 	ld hl, sp + 0
 	ld b, h
 	ld c, l
@@ -12,7 +25,7 @@ AnimateTapeTileL:
 	maskbits 8 ; n frames per row
 	swap a
 
-	ld hl, .TapeTileFrames
+	ld hl, TapeTileFrames
 	add a, l
 	ld l, a
 	adc a, h
@@ -22,13 +35,42 @@ AnimateTapeTileL:
 	ld sp, hl
 	jmp WriteTileToDE
 
-.TapeTileFrames:
-INCBIN "gfx/tilesets/anims/tape.2bpp"
+StopTapeL:
+	ld hl, sp + 0
+	ld b, h
+	ld c, l
+
+	ld a, 0
+	maskbits 8 ; n frames per row
+	swap a
+
+	ld hl, TapeTileFrames
+	add a, l
+	ld l, a
+	adc a, h
+	sub l
+	ld h, a
+
+	ld sp, hl
+	jmp WriteTileToDE
 
 AnimateTapeTileR:
     ; Change to VRAM bank 1
     ; ld a, 1
     ; ld [rVBK], a
+
+    push de
+
+    ld de, EVENT_ANIM_TAPE
+    ld b, CHECK_FLAG
+    call EventFlagAction
+
+    pop de
+
+    ld a, c
+    and a ; is it 0?
+    jp z, StopTapeR ; yes, then jump to something else
+    ; otherwise, run code for 1
 
     ld hl, sp + 0
     ld b, h
@@ -39,7 +81,7 @@ AnimateTapeTileR:
     maskbits 8 ; n frames per row
     swap a
 
-    ld hl, .TapeTileFrames + (16 * 8)  ; Offset of 16 bytes x n frames per row
+    ld hl, TapeTileFrames + (16 * 8)  ; Offset of 16 bytes x n frames per row
     add a, l
     ld l, a
     adc a, h
@@ -49,7 +91,26 @@ AnimateTapeTileR:
     ld sp, hl
     jmp WriteTileToDE
 
-.TapeTileFrames:
+StopTapeR:
+	ld hl, sp + 0
+	ld b, h
+	ld c, l
+
+	ld a, 0
+	maskbits 8 ; n frames per row
+	swap a
+
+	ld hl, TapeTileFrames + (16 * 8)
+	add a, l
+	ld l, a
+	adc a, h
+	sub l
+	ld h, a
+
+	ld sp, hl
+	jmp WriteTileToDE
+
+TapeTileFrames:
 INCBIN "gfx/tilesets/anims/tape.2bpp"
 
 AnimateScreenTileL:

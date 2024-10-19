@@ -10,6 +10,7 @@ Office_MapScriptHeader:
 	def_coord_events
 
 	def_bg_events
+	bg_event  3, 13, BGEVENT_READ, PCHiddenScript
 
 	def_object_events
 	object_event  3,  4, SPRITE_SILPH_EMPLOYEE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OfficeEmployee1Script, -1
@@ -17,7 +18,6 @@ Office_MapScriptHeader:
 	object_event 16, 14, SPRITE_SILPH_EMPLOYEE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OfficeEmployee3Script, -1
 	object_event 14, 15, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_GENERICTRAINER, 5, GenericTrainerScientistGepetto, -1
 	object_event  5, 15, SPRITE_PORYGON, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PorygonBallScript, EVENT_GOT_PORYGON_BALL
-
 
 	object_const_def
 	const OFFICE_EMPLOYEE_1
@@ -60,6 +60,25 @@ GenericTrainerScientistGepetto:
 	para "that's what guys"
 	line "do, right?"
 	done
+
+PCHiddenScript:
+	checkevent EVENT_ANIM_TAPE
+	iftrue .TapeRunning
+	setevent EVENT_ANIM_TAPE
+	refreshmap
+	; reanchormap
+	; pokepic CYNDAQUIL
+	; cry CYNDAQUIL
+	; waitbutton
+	; closepokepic
+	; changeblock 6, 16, $49
+	; refreshmap
+	end
+
+.TapeRunning
+	clearevent EVENT_ANIM_TAPE
+	refreshmap
+	end
 
 PorygonBallScript:
 	faceplayer
