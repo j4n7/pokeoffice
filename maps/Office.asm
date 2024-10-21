@@ -2,6 +2,7 @@ Office_MapScriptHeader:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, TapeStateCallback
 
 	def_warp_events
 	warp_event  9,  0, OFFICE_ELEVATOR, 1
@@ -78,6 +79,15 @@ Tape:
 	pause 5
 	refreshmap
 	end
+
+TapeStateCallback:
+	checkevent EVENT_ANIM_TAPE
+	iffalsefwd .ChangeTapeBlock
+	endcallback
+
+.ChangeTapeBlock:
+	changeblock 0, 12, $4A
+	endcallback
 
 PorygonScript:
 	faceplayer
