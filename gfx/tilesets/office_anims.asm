@@ -3,18 +3,18 @@ AnimateTapeTileL:
 	; ld a, 1
 	; ld [rVBK], a
 
-    push de
+    ; push de
 
-    ld de, EVENT_ANIM_TAPE
-    ld b, CHECK_FLAG
-    call EventFlagAction
+    ; ld de, EVENT_ANIM_TAPE
+    ; ld b, CHECK_FLAG
+    ; call EventFlagAction
 
-    pop de
+    ; pop de
 
-    ld a, c
-    and a ; is it 0?
-    jp z, StopTapeL ; yes, then jump to something else
-    ; otherwise, run code for 1
+    ; ld a, c
+    ; and a ; is it 0?
+    ; jp z, StopTapeL ; yes, then jump to something else
+    ; ; otherwise, run code for 1
 
 	ld hl, sp + 0
 	ld b, h
@@ -59,18 +59,18 @@ AnimateTapeTileR:
     ; ld a, 1
     ; ld [rVBK], a
 
-    push de
+    ; push de
 
-    ld de, EVENT_ANIM_TAPE
-    ld b, CHECK_FLAG
-    call EventFlagAction
+    ; ld de, EVENT_ANIM_TAPE
+    ; ld b, CHECK_FLAG
+    ; call EventFlagAction
 
-    pop de
+    ; pop de
 
-    ld a, c
-    and a ; is it 0?
-    jp z, StopTapeR ; yes, then jump to something else
-    ; otherwise, run code for 1
+    ; ld a, c
+    ; and a ; is it 0?
+    ; jp z, StopTapeR ; yes, then jump to something else
+    ; ; otherwise, run code for 1
 
     ld hl, sp + 0
     ld b, h

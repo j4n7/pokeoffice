@@ -10,21 +10,21 @@ Office_MapScriptHeader:
 	def_coord_events
 
 	def_bg_events
-	bg_event  3, 13, BGEVENT_READ, PCHiddenScript
+	bg_event  1, 13, BGEVENT_READ, Tape
 
 	def_object_events
 	object_event  3,  4, SPRITE_SILPH_EMPLOYEE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OfficeEmployee1Script, -1
 	object_event  3,  9, SPRITE_SILPH_EMPLOYEE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OfficeEmployee2Script, -1
 	object_event 16, 14, SPRITE_SILPH_EMPLOYEE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OfficeEmployee3Script, -1
-	object_event 14, 15, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_GENERICTRAINER, 5, GenericTrainerScientistGepetto, -1
-	object_event  5, 15, SPRITE_PORYGON, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PorygonBallScript, EVENT_GOT_PORYGON_BALL
+	object_event 18,  1, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_GENERICTRAINER, 5, GenericTrainerScientistGepetto, -1
+	object_event  7, 14, SPRITE_PORYGON, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PorygonScript, EVENT_GOT_PORYGON
 
 	object_const_def
 	const OFFICE_EMPLOYEE_1
 	const OFFICE_EMPLOYEE_2
 	const OFFICE_EMPLOYEE_3
 	const OFFICE_SCIENTIST_1
-	const PORYGON_BALL
+	const PORYGON_OW
 
 OfficeEmployee1Script:
 	faceplayer
@@ -61,41 +61,49 @@ GenericTrainerScientistGepetto:
 	line "do, right?"
 	done
 
-PCHiddenScript:
+Tape:
 	checkevent EVENT_ANIM_TAPE
-	iftrue .TapeRunning
+	iftruefwd .StopTape
+	showtext StartTapeText
 	setevent EVENT_ANIM_TAPE
+	changeblock 0, 12, $35
+	pause 5
 	refreshmap
-	; reanchormap
-	; pokepic CYNDAQUIL
-	; cry CYNDAQUIL
-	; waitbutton
-	; closepokepic
-	; changeblock 6, 16, $49
-	; refreshmap
 	end
 
-.TapeRunning
+.StopTape:
+	showtext StopTapeText
 	clearevent EVENT_ANIM_TAPE
+	changeblock 0, 12, $4A
+	pause 5
 	refreshmap
 	end
 
-PorygonBallScript:
+PorygonScript:
 	faceplayer
-	showemote EMOTE_SHOCK, PORYGON_BALL, 15
+	showemote EMOTE_SHOCK, PORYGON_OW, 15
 	pause 20
-	checkevent EVENT_GOT_PORYGON_BALL
-	iftrue .AlreadyGotGiftPoke
+
+	checkevent EVENT_GOT_PORYGON
+	iftruefwd .AlreadyGotGiftPoke
 	readvar VAR_PARTYCOUNT
 	ifequalfwd PARTY_LENGTH, .PartyFullGift
+
+	reanchormap
+	pokepic PORYGON
+	cry PORYGON
+	waitbutton
+	closepokepic
+
 	opentext
-	writetext PorygonBallText
+	writetext PorygonText
 	promptbutton
-	disappear PORYGON_BALL ; Since it dissapears, no need to check event
+
+	disappear PORYGON_OW
 	givepoke PORYGON, PLAIN_FORM, 20, ORAN_BERRY
-	setevent EVENT_GOT_PORYGON_BALL
-	closetext
-	end
+	setevent EVENT_GOT_PORYGON
+
+	endtext
 
 .PartyFullGift:
 	opentext
@@ -110,26 +118,28 @@ PorygonBallScript:
 	waitbutton
 	closetext
 	end
+
+StartTapeText:
+	text "<PLAYER>"
+	line "started tape."
+	done
+
+StopTapeText:
+	text "<PLAYER>"
+	line "stopped tape."
+	done
 	
 PartyFullGiftText:
 	text "Party is full."
 	done
 	
-PorygonBallText:
+PorygonText:
 	text "Someone left this"
 	line "#MON for you."
 	
 	para "There is a label"
-	line "on the Ball:"
+	line "on the #MON:"
 	cont "<PLAYER>"
-	done
-	
-ReceivedGiftText:
-	text "<PLAYER> received"
-	line "@"
-
-	text_ram wStringBuffer3
-	text "!"
 	done
 
 AlreadyGotGiftText:
