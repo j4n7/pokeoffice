@@ -110,20 +110,16 @@ StopTapeR:
 	ld sp, hl
 	jmp WriteTileToDE
 
-TapeTileFrames:
-INCBIN "gfx/tilesets/anims/tape.2bpp"
-
 AnimateScreenTileL:
 	ld hl, sp + 0
 	ld b, h
 	ld c, l
 
-	; period 8, offset to 1 tile (16 bytes)
 	ld a, [wTileAnimationTimer]
 	maskbits 4
 	swap a
 
-	ld hl, .ScreenTileFrames
+	ld hl, ScreenTileFrames
 	add a, l
 	ld l, a
 	adc a, h
@@ -133,20 +129,16 @@ AnimateScreenTileL:
 	ld sp, hl
 	jmp WriteTileToDE
 
-.ScreenTileFrames:
-INCBIN "gfx/tilesets/anims/screen.2bpp"
-
 AnimateScreenTileR:
     ld hl, sp + 0
     ld b, h
     ld c, l
 
-    ; period 8, offset to 1 tile (16 bytes)
     ld a, [wTileAnimationTimer]
     maskbits 4
     swap a
 
-    ld hl, .ScreenTileFrames + (16 * 4)
+    ld hl, ScreenTileFrames + (16 * 4)
     add a, l
     ld l, a
     adc a, h
@@ -156,5 +148,50 @@ AnimateScreenTileR:
     ld sp, hl
     jmp WriteTileToDE
 
-.ScreenTileFrames:
+AnimateScreenVirusTileL:
+	ld hl, sp + 0
+	ld b, h
+	ld c, l
+
+	ld a, [wTileAnimationTimer]
+	maskbits 16
+	swap a
+
+	ld hl, ScreenVirusTileFrames
+	add a, l
+	ld l, a
+	adc a, h
+	sub l
+	ld h, a
+
+	ld sp, hl
+	jmp WriteTileToDE
+
+AnimateScreenVirusTileR:
+    ld hl, sp + 0
+    ld b, h
+    ld c, l
+
+    ld a, [wTileAnimationTimer]
+    maskbits 16
+    swap a
+
+    ld hl, ScreenVirusTileFrames + (16 * 16)
+    add a, l
+    ld l, a
+    adc a, h
+    sub l
+    ld h, a
+
+    ld sp, hl
+    jmp WriteTileToDE
+
+
+TapeTileFrames:
+INCBIN "gfx/tilesets/anims/tape.2bpp"
+
+ScreenTileFrames:
 INCBIN "gfx/tilesets/anims/screen.2bpp"
+
+ScreenVirusTileFrames:
+INCBIN "gfx/tilesets/anims/screen_virus.2bpp"

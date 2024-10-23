@@ -1,4 +1,4 @@
-INCLUDE "gfx/tilesets/office_anims.asm"
+INCLUDE "gfx/tilesets/ow_anims.asm"
 
 _AnimateTileset::
 ; Iterate over a given pointer array of
@@ -323,6 +323,15 @@ TilesetOfficeAnim::
 	dw NULL,  DoneTileAnimation
 
 TilesetServerFloorAnim::
+	dw vTiles2 tile $18, AnimateTapeTileL
+	dw vTiles2 tile $19, AnimateTapeTileR
+	dw vTiles2 tile $1C, AnimateScreenTileL
+	dw vTiles2 tile $1D, AnimateScreenTileR
+	dw vTiles2 tile $20, AnimateScreenVirusTileL
+	dw vTiles2 tile $21, AnimateScreenVirusTileR
+	dw NULL,  StandingTileFrame8 ; Needed for animations to work
+	dw NULL,  DoneTileAnimation
+
 TilesetBaadonAnim::
 TilesetHouse1Anim::
 TilesetHouse2Anim::
